@@ -22,12 +22,10 @@ public class ServiceController {
         service1.image="https://xxx.com";
         serviceList.add(service1);
         return new ResponseEntity<List<Service>>(serviceList, HttpStatus.OK);
-
-        // return serviceList;
     }
     
     @GetMapping("/")
     public String getHello(){
-        return "Hello wordx";
+        return "Hello wordmini";
     }
 }

@@ -1,8 +1,18 @@
 package com.nolo.nolo;
 
-public class Service {
-    Integer id;
-    String name;
-    String description;
-    String image;
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter @Setter @NoArgsConstructor 
+public class Service implements Serializable {
+
+    public Integer id;
+    public String name;
+    public String description;
+    public String image;
 }
