@@ -14,6 +14,9 @@ public class ServiceController {
 
     @Autowired
     private ServiceRepository serviceRepository;
+    
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/service")
     public @ResponseBody Iterable<Service> getServices() {
@@ -30,6 +33,30 @@ public class ServiceController {
         service.description = serviceDto.description;
         service.image = serviceDto.image;
         serviceRepository.save(service);
+        return "Saved";
+    }
+    
+    @PostMapping(value = "/newsletter")
+    public @ResponseBody String addNewsLetter(@RequestBody UserDto userDto) {
+        // @ResponseBody means the returned String is the response, not a view name
+        // @RequestParam means it is a parameter from the GET or POST request
+        /*
+        Service service = new Service();
+
+        service.name = serviceDto.name;
+        service.description = serviceDto.description;
+        service.image = serviceDto.image;
+        serviceRepository.save(service);
+        */
+        
+        User user = new User();
+        
+        user.name = userDto.name;
+        user.email = userDto.email;
+        
+        userRepository.save(user);
+        
+        
         return "Saved";
     }
 }
